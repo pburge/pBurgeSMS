@@ -1,3 +1,17 @@
+#vid_posish{ 
+  margin: 10px; 
+}
+
+.slider{
+  width: 150px;
+  margin: 15px;
+  float: left;
+ /*clear: both;*/
+  /*bottom: 90px;*/
+  /*right: auto;*/
+  /*left: 30px;*/
+}
+
 .comment{
   margin-left: 50px;
 }
@@ -25,21 +39,29 @@
   border: 0px solid #dce0e6;
 }
 
-.vid_posish:before{
+/*.vid_posish:before{
   content:'';
   position: absolute;
   width: 30%;
   border: 5px solid;
+}*/
+
+.vid_seek{
+  width: 0px;
+  height: 10px;
+  background-color: black;
+  /*border: 5px solid;*/
+  /*padding: 5px 50px;*/
 }
 
 .vid_icons{
-  padding: 5px 15px 5px 15px;
+  padding: 5px 15px;
 }
 .play{
-  background: url('../img/play_icon.png');
   width: 45px;
   height: 45px;
   float:left;
+  background: url('../img/play_icon.png');
 }
 
 .mic{
@@ -50,7 +72,25 @@
   padding: 8px 10px;
 }
 
-.play:hover{ opacity: .7; background: url('../img/pause_icon.png'); }
+.paused{
+  width: 45px;
+  height: 45px;
+  /*float:left;*/
+  background: url('../img/pause_icon.png');
+}
+
+.playing{
+  width: 45px;
+  height: 45px;
+  float:left;
+  background: url('../img/play_icon.png');
+}
+
+.volume{
+  float: left;
+}
+
+.play:hover{ opacity: .7; /*background: url('../img/pause_icon.png');*/ }
 .play:active{ opacity: .5; }
 .volume:hover{ opacity: .7; }
 .volume:active{ opacity: .5; }
