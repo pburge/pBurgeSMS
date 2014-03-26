@@ -1,5 +1,68 @@
 var d;
 var p;
+var un;
+var msg;
+var login;
+
+var chatRef = new Firebase('https://blazing-fire-6476.firebaseio.com/');
+
+chatRef.on('child_added', function(snapshot) {
+	var message = snapshot.val();
+	displayChatMessage(message.name, message.text);
+});
+
+function displayChatMessage(name, text) {
+	var html = '';
+
+	html += '' +
+	'<div class="box-products">'+
+		'<div class="user_icon"></div>'+
+			'<h4>' + name + '</h4>' +
+		'<p class="comment">' + text + '</p>'+
+	'</div>';
+
+	$('#comments').prepend(html);
+
+};
+
+var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
+	if (error) {
+		// an error occurred while attempting login
+		console.log(error);
+	} else if (user) {
+		// user authenticated with Firebase
+		un = user.displayName;
+		$('#fbook').text('logout');
+		login = false;
+		console.log('User ID: ' + user.displayName + ', Provider: ' + user.provider);
+	} else {
+		console.log('logged out');
+		login = true;
+		$('#fbook').text('Login with Facebook');
+		// user is logged out
+	}
+});
+
+
+$('#submit').click(function(e) {
+	msg = $('#messageInput').val();
+	chatRef.push({name: un, text: msg});
+});
+
+$('#fbook').click(function(e){
+	if(login == true){
+		console.log(login + ' logged in');
+		auth.login('facebook');
+		login = false;
+		e.preventDefault();
+	}else if(login == false) {
+		console.log(login + ' logged out');
+		auth.logout();
+		login = true;
+		e.preventDefault();
+	}
+
+});
 
 var flashReady = function(){
 	flash.connect('rtmp://localhost/SMSServer');

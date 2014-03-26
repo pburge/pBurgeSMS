@@ -33,10 +33,10 @@
 .vid_posish{
   width: 100%;
   height: 10px;
-  background-color: #606d80;
+  background-color: #567ebb;
   margin: 0 auto;
   position: relative;
-  border: 0px solid #dce0e6;
+  border: 0px solid #567ebb;
 }
 
 /*.vid_posish:before{
@@ -49,7 +49,7 @@
 .vid_seek{
   width: 0px;
   height: 10px;
-  background-color: black;
+  background-color: #606d80;
   /*border: 5px solid;*/
   /*padding: 5px 50px;*/
 }

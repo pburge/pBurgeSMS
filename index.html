@@ -1,119 +1,103 @@
-<!-- <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>slider demo</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-  <style>#slider { margin: 10px; }	</style>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-</head>
-<body>
- 
-<div id="slider"></div>
- 
-<script>
-$( "#slider" ).slider();
-</script>
- 
-</body>
-</html> -->
-
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+ 	<meta charset="utf-8">
 	<title>Whatever U</title>
 	<link href="css/main.css" rel='stylesheet'>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+	<script type='text/javascript' src='https://cdn.firebase.com/js/simple-login/1.3.0/firebase-simple-login.js'></script>
 </head>
 
 <body>
 
+	<script>
+		// $('#fbook').click(function(e) {
+		// 	$('#fbook').attr('id', 'logout');
+		// 	auth.login('facebook');
+		// 	$('#logout').text('logout');
+		// 	e.preventDefault();
+		// 	console.log('logged in');
+		// });
+	</script>
+
 	<div class='container'>
-			<!-- Begin Navigation -->
-			<div class="navbar navbar-inverse">
-				<div class="navbar-header" style="margin-top: 10px;">
-					<a class="navbar-brand" href="index.html">
-						<img src="img/logo.png">
-						Whatever U
-					</a>
-				</div>
-
-				<div class="navbar-text navbar-right">
-					<a class='navbar-link' href="#">Login with Twitter</a>
-				</div>
-				
-				<div class="navbar-text navbar-right">
-					<a class='navbar-link' href="#">Login with Facebook</a>
-				</div>
-			</div>
-			<!-- End Navigation -->
-
-			<div class='box-cta'>
-				<div id="flashContent">
-					<script type="text/javascript">
-						var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
-						document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" );
-					</script>
-		        </div>
+		<!-- Begin Navigation -->
+		<div class="navbar navbar-inverse">
+			<div class="navbar-header" style="margin-top: 10px;">
+				<a class="navbar-brand" href="index.html">
+					<img src="img/logo.png">
+					Whatever U
+				</a>
 			</div>
 
-			<div class='vid_posish'>
-
-				<div class='vid_seek'></div>
-
+			<div class="navbar-text navbar-right">
+				<a class='navbar-link' href="#">Login with Twitter</a>
 			</div>
-
-				<!-- 
-					Seek To : <input id="seekTo" type="text" value="10" />
-					<input id="update" type="button" value="Update" />
-					
-					Current Value : <span id="val">0</span> 
-				-->
-
-			<div class='player-controls'>
-				<div class='vid_icons'>
-					<div class='play' id='main_btn' style='margin-right: 10px;'></div>
-					<img class='volume' src="img/volume_icon.png">
-<div class='slider'></div>
-					<img class='pull-right record' src="img/record_icon.png">
-					<img class='pull-right mic' src="img/pick_mic.png">
-					<img class='pull-right cam' src="img/pick_webcam.png">
-					<!-- <p id='vid_time' class='pull-right vid_time'>00:00 / 00:00</p> -->
-
-				</div>
+			<div class="navbar-text navbar-right">
+				<a class='navbar-link' href='#' id='fbook'>Login with Facebook</a>
 			</div>
+		</div>
+		<!-- End Navigation -->
 
-			<hr>
-
-			<h1>Comments</h1>
-
-			<br>
-		<div class='box-products'>
-			<div class='user_icon'></div>
-			<h4>username1</h4>
-			<p class='comment'>this is a test comment and i think this video sucks.</p>
+		<div class='box-cta'>
+			<div id="flashContent">
+				<script type="text/javascript">
+					var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
+					document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" );
+				</script>
+			</div>
 		</div>
 
-		<div class='box-products'>
-			<div class='user_icon'></div>
-			<h4>username2</h4>
-			<p class='comment'>this is a test comment and i think this video rocks.</p>
+		<div class='vid_posish'>
+			<div class='vid_seek'></div>
 		</div>
 
-		<div class='box-products'>
-			<div class='user_icon'></div>
-			<h4>username3</h4>
-			<p class='comment'>this is a test comment and i think this video is alright.</p>
+		<div class='player-controls'>
+			<div class='vid_icons'>
+				<div class='play' id='main_btn' style='margin-right: 10px;'></div>
+				<img class='volume' src="img/volume_icon.png">
+				<div class='slider'></div>
+				<img class='pull-right record' src="img/record_icon.png">
+				<img class='pull-right mic' src="img/pick_mic.png">
+				<img class='pull-right cam' src="img/pick_webcam.png">
+				<!-- <p id='vid_time' class='pull-right vid_time'>00:00 / 00:00</p> -->
+			</div>
 		</div>
 
+		<hr>
 
-		<textarea cols='152' rows='5'></textarea><br><br>
-		<button class='btn btn-primary pull-right'>Submit</button>
+		<h1>Comments</h1>
+
+		<br>
+
+		<div id='comments'>
+<!--
+			<div class='box-products'>
+				<div class='user_icon'></div>
+				<h4>username1</h4>
+				<p class='comment'>this is a test comment and i think this video sucks.</p>
+			</div>
+
+			<div class='box-products'>
+				<div class='user_icon'></div>
+				<h4>username2</h4>
+				<p class='comment'>this is a test comment and i think this video rocks.</p>
+			</div>
+
+			<div class='box-products'>
+				<div class='user_icon'></div>
+				<h4>username3</h4>
+				<p class='comment'>this is a test comment and i think this video is alright.</p>
+			</div> 
+-->
+
+		</div>
+		
+		<textarea cols='152' rows='5' id='messageInput'></textarea><br><br>
+		<button class='btn btn-primary pull-right' id='submit'>Submit</button>
 
 		<br><br><br>
 
