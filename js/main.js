@@ -3,6 +3,12 @@ var p;
 var un;
 var msg;
 var login;
+var cams;
+var mics;
+var rec;
+var cameraIndex = 0;
+var microphoneIndex = 0;
+
 
 var chatRef = new Firebase('https://blazing-fire-6476.firebaseio.com/');
 
@@ -64,8 +70,41 @@ $('#fbook').click(function(e){
 
 });
 
+$('#mic').click(function(e) {
+	$.each(mics, function(i, micList) {
+		// $('#mic_div').append(micList);
+		console.log(i + ' : ' + micList);
+	});
+});
+
+$('#cam').click(function(e) {
+	$.each(cams, function(i, camList) {
+		// $('#cam_div').append(camList);
+		console.log(i + ' : ' + camList);
+	});
+});
+
+$('#rec').click(function(e) {
+	if(rec == 1){
+		console.log(rec);
+		rec = 2;
+		flash.startRecording('movie',cameraIndex,microphoneIndex);
+	}else if(rec == 2){
+		console.log(rec);
+		rec = 1;
+		flash.stopRecording();
+	}
+	
+});
+
+
+
 var flashReady = function(){
 	flash.connect('rtmp://localhost/SMSServer');
+
+	cams = flash.getCameras();
+	mics = flash.getMicrophones();
+	rec = 1;
 
 	$('.slider').slider({
 	    min: 0,
@@ -74,7 +113,7 @@ var flashReady = function(){
 	    step: .1,
 	    value: 1,
 	    slide: function(e, ui) {
-	       flash.setVolume(-ui.value);
+	       flash.setVolume(ui.value);
 	    }
 	});
 
@@ -96,7 +135,6 @@ var connected = function(success,error){
 };
 
 var checkPaused = function(){
-
 	var status = flash.playPause();
 	if(status){
 		if(!p){

@@ -49,6 +49,8 @@
 					document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" );
 				</script>
 			</div>
+			<div id='mic_div'></div>
+			<div id='cam_div'></div>
 		</div>
 
 		<div class='vid_posish'>
@@ -60,9 +62,9 @@
 				<div class='play' id='main_btn' style='margin-right: 10px;'></div>
 				<img class='volume' src="img/volume_icon.png">
 				<div class='slider'></div>
-				<img class='pull-right record' src="img/record_icon.png">
-				<img class='pull-right mic' src="img/pick_mic.png">
-				<img class='pull-right cam' src="img/pick_webcam.png">
+				<img class='pull-right rec' id='rec' src="img/record_icon.png">
+				<img class='pull-right mic' id='mic' src="img/pick_mic.png">
+				<img class='pull-right cam' id='cam' src="img/pick_webcam.png">
 				<!-- <p id='vid_time' class='pull-right vid_time'>00:00 / 00:00</p> -->
 			</div>
 		</div>
@@ -95,7 +97,7 @@
 -->
 
 		</div>
-		
+
 		<textarea cols='152' rows='5' id='messageInput'></textarea><br><br>
 		<button class='btn btn-primary pull-right' id='submit'>Submit</button>
 
